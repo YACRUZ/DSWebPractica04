@@ -31,9 +31,7 @@
         
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, username);
-        
-        out.println(username);
-        out.println(password);
+
         ResultSet resultSet = preparedStatement.executeQuery();
         
         if (resultSet.next() && DigestUtils.sha256Hex(password).equals(resultSet.getString("contrasena"))) {
